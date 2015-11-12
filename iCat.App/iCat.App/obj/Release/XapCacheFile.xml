@@ -1,0 +1,9 @@
+﻿<xapCache source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\Bin\Release\iCat.App.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="24/05/2013 20:52:19">
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\Bin\Release\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="02/03/2013 01:42:56" />
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\Background.png" archivePath="Background.png" lastWriteTime="05/10/2012 12:44:31" />
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="05/10/2012 12:45:18" />
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\obj\Release\iCat.App.dll" archivePath="iCat.App.dll" lastWriteTime="24/05/2013 20:52:18" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="29/08/2011 23:49:08" />
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="05/10/2012 12:49:29" />
+  <file source="D:\Visual Studio 2010\Projects\iCat.App\iCat.App\Bin\Release\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="24/05/2013 19:08:50" />
+</xapCache>

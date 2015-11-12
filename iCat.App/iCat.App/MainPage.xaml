@@ -1,0 +1,151 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="iCat.App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <MediaElement Name="icat" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/icat_fm" AutoPlay="False" MediaFailed="icat_MediaFailed" CurrentStateChanged="icat_CurrentStateChanged" BufferingProgressChanged="icat_BufferingProgressChanged"/>
+        <MediaElement Name="icatronica" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/icatronica" AutoPlay="False" CurrentStateChanged="icatronica_CurrentStateChanged"/>
+        <MediaElement Name="icatjazz" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/icat_jazz" AutoPlay="False" CurrentStateChanged="icatjazz_CurrentStateChanged"/>
+        <MediaElement Name="musicatles" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/music_atles" AutoPlay="False" CurrentStateChanged="icatMon_CurrentStateChanged"/>
+        <MediaElement Name="totcat" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/tot_cat" AutoPlay="False" CurrentStateChanged="toticat_CurrentStateChanged"/>
+        <MediaElement Name="mediterradio" Source="http://directe-http.emissio.catradio.cat:8000/catradio.cat/mediterradio" AutoPlay="False" CurrentStateChanged="icatRumba_CurrentStateChanged"/>
+
+        <!--Control Panorama-->
+        <controls:Panorama Title="iCat.App">
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="PanoramaBackground.png"/>
+            </controls:Panorama.Background>
+
+
+            <!--Elemento Panorama uno-->
+            <controls:PanoramaItem Header="iCat.cat">
+                <!--Lista de líneas dobles con ajuste de texto-->
+                <Grid Name="icat_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_icat" Height="124" Width="155"  Click="play_icat_Click">
+                        <StackPanel>
+                            <Image Name="icat_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="icat_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="icat_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="icat_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,93" FontSize="38" Name="icat_prog" Text="-- Sense Dades --" TextWrapping="Wrap" Height="205" />
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="icat_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama dos-->
+            <!--Use 'Orientation="Horizontal"' para habilitar un panel que dispuesto horizontalmente-->
+            <controls:PanoramaItem Header="iCatrònica">
+                <!--Lista de líneas dobles con marcador de posición de imagen y ajuste de texto-->
+                <Grid Name="icatronica_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_icatronica" Height="124" Width="155"  Click="play_icatronica_Click">
+                        <StackPanel>
+                            <Image Name="icatronica_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="icatronica_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="icatronica_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="icatronica_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,235" FontSize="38" Name="icatronica_prog" Text="Selecció iCatrònica" TextWrapping="Wrap"/>
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="icatronica_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama tres-->
+            <controls:PanoramaItem Header="iCatJazz">
+                <!--Lista de líneas dobles con ajuste de texto-->
+                <Grid Name="icatjazz_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_icatjazz" Height="124" Width="155"  Click="play_icatjazz_Click">
+                        <StackPanel>
+                            <Image Name="icatjazz_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="icatjazz_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="icatjazz_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="icatjazz_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,235" FontSize="38" Name="icatjazz_prog" Text="Selecció iCatJazz" TextWrapping="Wrap"/>
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="icatjazz_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama cuatro-->
+            <controls:PanoramaItem Header="iCatMón">
+                <!--Lista de líneas dobles con ajuste de texto-->
+                <Grid Name="musicatles_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_musicatles" Height="124" Width="155"  Click="play_musicatles_Click">
+                        <StackPanel>
+                            <Image Name="musicatles_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="musicatles_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="musicatles_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="musicatles_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,235" FontSize="38" Name="musicatles_prog" Text="Selecció iCatMón" TextWrapping="Wrap"/>
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="icatMon_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama cinco-->
+            <controls:PanoramaItem Header="totCat">
+                <!--Lista de líneas dobles con ajuste de texto-->
+                <Grid Name="totcat_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_totcat" Height="124" Width="155"  Click="play_totcat_Click">
+                        <StackPanel>
+                            <Image Name="totcat_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="totcat_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="totcat_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="totcat_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,235" FontSize="38" Name="totcat_prog" Text="Selecció totCat" TextWrapping="Wrap"/>
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="totcat_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <!--Elemento Panorama seis-->
+            <controls:PanoramaItem Header="iCatRumba">
+                <!--Lista de líneas dobles con ajuste de texto-->
+                <Grid Name="mediterradio_list" Margin="0,0,0,0">
+                    <Button Margin="-250,0,10,320" Name="play_mediterradio" Height="124" Width="155"  Click="play_mediterradio_Click">
+                        <StackPanel>
+                            <Image Name="mediterradio_image" Source="Images\play.png" Stretch="None" />
+                            <TextBlock Text="Play" Name="mediterradio_text" TextWrapping="Wrap" FontSize="18" TextAlignment="Center" Height="30" Width="103" />
+                        </StackPanel>
+                    </Button>
+                    <TextBlock Margin="155,38,180,420" FontSize="24" Text="Volum:" />
+                    <TextBlock Margin="342,28,20,420" FontSize="36" Name="mediterradio_vol" Text="{Binding}" />
+                    <Slider Margin="152,78,10,310" Name="mediterradio_slider" Minimum="0" Maximum="1" ValueChanged="Slider_icat_ValueChanged" />
+                    <TextBlock Margin="15,150,250,290" FontSize="40" Text="Ara fem:" />
+                    <TextBlock Margin="15,200,10,235" FontSize="38" Name="mediterradio_prog" Text="Selecció iCatRumba" TextWrapping="Wrap"/>
+                    <TextBlock Margin="9,430,10,0" FontSize="38" Name="icatRumba_carregant" TextWrapping="Wrap" Height="60" VerticalAlignment="Top" Width="401" />
+                </Grid>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+</phone:PhoneApplicationPage>
