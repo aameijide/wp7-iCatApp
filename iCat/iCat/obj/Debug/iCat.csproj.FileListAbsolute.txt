@@ -1,0 +1,15 @@
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\ApplicationIcon.png
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\Background.png
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\AppManifest.xaml
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\iCat.xap
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\Microsoft.Phone.Controls.dll
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\Microsoft.Phone.Controls.xml
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\ResolveAssemblyReference.cache
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\App.g.i.cs
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\MainPage.g.i.cs
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\XapCacheFile.xml
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\iCat.dll
+D:\Visual Studio 2010\Projects\iCat\iCat\Bin\Debug\iCat.pdb
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\iCat.g.resources
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\iCat.dll
+D:\Visual Studio 2010\Projects\iCat\iCat\obj\Debug\iCat.pdb
